@@ -14,5 +14,10 @@
 Auth::routes();//ログイン機能
 Route::get('/', 'ArticleController@index')->name('articles.index');
 Route::resource('/articles', 'ArticleController')->except(['index','show'])->middleware('auth');
-Route::resource('/articles', 'ArticleController')->only('show');
-//記事投稿
+Route::resource('/articles', 'ArticleController')->only('show');//記事投稿
+
+//いいね機能のルーティング
+Route::prefix('articles')->name('articles.')->group(function () {
+    Route::put('/{article}/like', 'ArticleController@like')->name('like')->middleware('auth');
+    Route::delete('/{article}/like', 'ArticleController@unlike')->name('unlike')->middleware('auth');
+});

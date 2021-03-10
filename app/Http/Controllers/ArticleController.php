@@ -51,4 +51,27 @@ class ArticleController extends Controller
      public function show(Article $article){
           return view('articles.show', ['article' => $article]);
      }
+
+     //いいね機能の処理
+    public function like(Request $request, Article $article)
+    {
+        
+        $article->likes()->detach($request->user()->id);
+        $article->likes()->attach($request->user()->id);
+
+        return [
+            'id' => $article->id,
+            'countLikes' => $article->count_likes,
+        ];
+    }
+
+    public function unlike(Request $request, Article $article)
+    {
+        $article->likes()->detach($request->user()->id);
+
+        return [
+            'id' => $article->id,
+            'countLikes' => $article->count_likes,
+        ];
+    }
 }
