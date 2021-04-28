@@ -29,13 +29,15 @@ class ArticleController extends Controller
           $article->fill($request->all());
           $article->user_id = $request->user()->id;
           $article->save();
-          return redirect()->route('articles.index');
-
+          
           //タグの登録と紐づけ
           $request->tags->each(function($tagname)use($article){
                $tags = Tag::firstOrCreate(['name' => $tagname]);
                $article->tags()->attach($tags);
           });
+
+          return redirect()->route('articles.index');
+
      }
 
      public function edit(Article $article){
