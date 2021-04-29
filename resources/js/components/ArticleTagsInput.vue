@@ -8,7 +8,7 @@
     <vue-tags-input
       v-model="tag"
       :tags="tags"
-      placeholder="タグを5個まで入力できます"
+      placeholder = "タグを５個まで入力出来ます"
       :autocomplete-items="filteredItems"
       @tags-changed="newTags => tags = newTags"
     />
@@ -63,5 +63,8 @@ export default {
     margin-right: 4px;
     border-radius: 0px;
     font-size: 13px;
+  }
+  .vue-tags-input .ti-tag::before{
+    content: "#";
   }
 </style>

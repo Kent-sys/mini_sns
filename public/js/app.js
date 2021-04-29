@@ -2083,23 +2083,16 @@ __webpack_require__.r(__webpack_exports__);
     initialTags: {
       type: Array,
       "default": []
+    },
+    autocompleteItems: {
+      type: Array,
+      "default": []
     }
   },
   data: function data() {
     return {
       tag: '',
-      tags: this.initialTags,
-      autocompleteItems: [{
-        text: 'Spain'
-      }, {
-        text: 'France'
-      }, {
-        text: 'USA'
-      }, {
-        text: 'Germany'
-      }, {
-        text: 'China'
-      }]
+      tags: this.initialTags
     };
   },
   computed: {
@@ -2149,7 +2142,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.vue-tags-input .ti-tag {\n  background: transparent;\n  border: 1px solid #747373;\n  color: #747373;\n  margin-right: 4px;\n  border-radius: 0px;\n  font-size: 13px;\n}\n", ""]);
+exports.push([module.i, "\n.vue-tags-input .ti-tag {\n  background: transparent;\n  border: 1px solid #747373;\n  color: #747373;\n  margin-right: 4px;\n  border-radius: 0px;\n  font-size: 13px;\n}\n.vue-tags-input .ti-tag::before{\n  content: \"#\";\n}\n", ""]);
 
 // exports
 
@@ -21318,7 +21311,7 @@ var render = function() {
       _c("vue-tags-input", {
         attrs: {
           tags: _vm.tags,
-          placeholder: "タグを5個まで入力できます",
+          placeholder: "タグを５個まで入力出来ます",
           "autocomplete-items": _vm.filteredItems
         },
         on: {
@@ -33641,15 +33634,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!******************************************************!*\
   !*** ./resources/js/components/ArticleTagsInput.vue ***!
   \******************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ArticleTagsInput_vue_vue_type_template_id_99f1e074_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ArticleTagsInput.vue?vue&type=template&id=99f1e074&scoped=true& */ "./resources/js/components/ArticleTagsInput.vue?vue&type=template&id=99f1e074&scoped=true&");
 /* harmony import */ var _ArticleTagsInput_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ArticleTagsInput.vue?vue&type=script&lang=js& */ "./resources/js/components/ArticleTagsInput.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _ArticleTagsInput_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _ArticleTagsInput_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _ArticleTagsInput_vue_vue_type_style_index_0_id_99f1e074_lang_css_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ArticleTagsInput.vue?vue&type=style&index=0&id=99f1e074&lang=css&scoped=true& */ "./resources/js/components/ArticleTagsInput.vue?vue&type=style&index=0&id=99f1e074&lang=css&scoped=true&");
+/* empty/unused harmony star reexport *//* harmony import */ var _ArticleTagsInput_vue_vue_type_style_index_0_id_99f1e074_lang_css_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ArticleTagsInput.vue?vue&type=style&index=0&id=99f1e074&lang=css&scoped=true& */ "./resources/js/components/ArticleTagsInput.vue?vue&type=style&index=0&id=99f1e074&lang=css&scoped=true&");
 /* harmony import */ var _ArticleTagsInput_vue_vue_type_style_index_1_lang_css___WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ArticleTagsInput.vue?vue&type=style&index=1&lang=css& */ "./resources/js/components/ArticleTagsInput.vue?vue&type=style&index=1&lang=css&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
@@ -33683,7 +33675,7 @@ component.options.__file = "resources/js/components/ArticleTagsInput.vue"
 /*!*******************************************************************************!*\
   !*** ./resources/js/components/ArticleTagsInput.vue?vue&type=script&lang=js& ***!
   \*******************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
