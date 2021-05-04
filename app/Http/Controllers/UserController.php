@@ -8,27 +8,27 @@ use App\User;
 class UserController extends Controller
 {
     public function show(string $name){
-        $user = User::where('name', $name)->first();
+        $user = User::where('name', $name)->first()->load(['articles.user', 'articles.likes', 'articles.tags',]);
         $articles = $user->articles->sortByDesc('created_at');
         return view('users.show',['user' => $user, 'articles' => $articles]);
 
     }
 
     public function likes(string $name){
-        $user = User::where('name', $name)->first();
+        $user = User::where('name', $name)->first()->load(['likes.user', 'likes.likes', 'likes.tags']);
         $articles = $user->likes->sortByDesc('created_at');
         return view('users.likes',['user' => $user, 'articles' => $articles]);
 
     }
     //フォローしているユーザーの一覧表示
     public function followings(string $name){
-        $user = User::where('name', $name)->first();
+        $user = User::where('name', $name)->first()->load('following.followers');
         $followings = $user->following->sortByDesc('created_at');
         return view('users.followings',['user' => $user, 'followings' => $followings]);
     }
     //フォローされているユーザーの一覧表示
     public function followers(string $name){
-        $user = User::where('name', $name)->first();
+        $user = User::where('name', $name)->first()->load('followers.followers');
         $followers = $user->followers->sortByDesc('created_at');
         return view('users.followers',['user' => $user, 'followers' => $followers]);
     }
