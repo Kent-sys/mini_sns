@@ -11,7 +11,7 @@
             <div class="card-text">
               <form method="POST" action="{{ route('articles.store') }}">
                 @include('articles.form')
-                <button type="submit" class="btn blue-gradient btn-block">投稿する</button>
+                <button type="submit" class="btn mean-fruit-gradient btn-block">投稿する</button>
               </form>
             </div>
           </div>
