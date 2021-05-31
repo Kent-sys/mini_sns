@@ -6,6 +6,7 @@ jobs:
       - image: circleci/mysql:5.7-ram
         environment: 
           - MYSQL_DATABASE: larasns
+          - MYSQL_ALLOW_EMPTY_PASSWORD: true
           - MYSQL_USER: default
           - MYSQL_PASSWORD: secret
     environment:
