@@ -7,15 +7,15 @@ jobs:
         environment: 
           - MYSQL_DATABASE: larasns
           - MYSQL_ALLOW_EMPTY_PASSWORD: true
-          - MYSQL_USER: root
          
     environment:
       APP_ENV: testing
       DB_CONNECTION: mysql
-      DB_HOST: localhost
+      DB_HOST: 127.0.0.1
       DB_PORT: 3306
       DB_DATABASE: larasns
       DB_USERNAME: root
+      DB_PASSWORD: ''
     steps:
       - checkout
       - run: sudo composer self-update --1
