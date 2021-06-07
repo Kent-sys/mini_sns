@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand navbar-dark mean-fruit-gradient">
 
-  <a class="navbar-brand" href="/"><i class="fa fa-comments mr-1"></i>mini_sns</a>
+  <a class="navbar-brand" href="/"><i class="fa fa-comments mr-1"></i>MINI_SNS</a>
   <ul class="navbar-nav ml-auto">
     @guest
     <li class="nav-item">
