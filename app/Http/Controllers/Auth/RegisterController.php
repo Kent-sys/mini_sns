@@ -53,6 +53,7 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'alpha_num', 'min:3', 'max:16', 'unique:users'], //-- 変更
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'img_name' => ['file', 'image', 'mimes:jpeg,png,jpg', 'max:2000'],
         ]);
     }
 
@@ -64,10 +65,49 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        //引数 $data から name='img_name'を取得(アップロードするファイル情報)
+        $imageFile = $data['img_name'];
+
+        //$imageFileからファイル名を取得(拡張子あり)
+        $filenameWithExt = $imageFile->getClientOriginalName();
+
+        //拡張子を除いたファイル名を取得
+        $fileName = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+
+        //拡張子を取得
+        $extension = $imageFile->getClientOriginalExtension();
+
+        // ファイル名_時間_拡張子 として設定
+        $fileNameToStore = $fileName.'_'.time().'.'.$extension;
+
+        //画像ファイル取得
+        $fileData = file_get_contents($imageFile->getRealPath());
+
+        //拡張子ごとに base64エンコード実施
+        if ($extension = 'jpg'){
+        $data_url = 'data:image/jpg;base64,'. base64_encode($fileData);
+        }
+
+        if ($extension = 'jpeg'){
+        $data_url = 'data:image/jpg;base64,'. base64_encode($fileData);
+        }
+
+        if ($extension = 'png'){
+        $data_url = 'data:image/png;base64,'. base64_encode($fileData);
+        }
+
+
+        //画像アップロード(Imageクラス makeメソッドを使用)
+        $image = Image::make($data_url);
+
+        //画像を横400px, 縦400pxにリサイズし保存
+        $image->resize(400,400)->save(storage_path() . '/app/public/images/' . $fileNameToStore );
+        
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'img_name' => $fileNameToStore,
         ]);
     }
 }
