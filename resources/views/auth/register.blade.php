@@ -14,8 +14,14 @@
             @include('error_card_list')
             <div class="card-text">
               
-              <form method="POST" action="{{ route('register') }}">
+              <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                 @csrf
+
+                <label for="file_photo" class="rounded-circle userProfileImg mean-fruit-gradient">
+                  <i class="fas fa-camera fa-3x"></i>
+                  <input type="file" id="file_photo" name="img_name">
+                </label>
+
                 <div class="md-form">
                   <label for="name">ユーザー名</label>
                   <input class="form-control" type="text" id="name" name="name" required value="{{ old('name') }}">

@@ -7,6 +7,8 @@ use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Intervention\Image\Facades\Image; 
+use App\Services\CheckExtensionServices;
 
 class RegisterController extends Controller
 {
@@ -83,25 +85,14 @@ class RegisterController extends Controller
         //画像ファイル取得
         $fileData = file_get_contents($imageFile->getRealPath());
 
-        //拡張子ごとに base64エンコード実施
-        if ($extension = 'jpg'){
-        $data_url = 'data:image/jpg;base64,'. base64_encode($fileData);
-        }
-
-        if ($extension = 'jpeg'){
-        $data_url = 'data:image/jpg;base64,'. base64_encode($fileData);
-        }
-
-        if ($extension = 'png'){
-        $data_url = 'data:image/png;base64,'. base64_encode($fileData);
-        }
+        $data_url = CheckExtensionServices::checkExtension($fileData, $extension);
 
 
         //画像アップロード(Imageクラス makeメソッドを使用)
         $image = Image::make($data_url);
 
-        //画像を横400px, 縦400pxにリサイズし保存
-        $image->resize(400,400)->save(storage_path() . '/app/public/images/' . $fileNameToStore );
+        //画像を横100pxにリサイズし保存
+        $image->resize(100, null, function($constraint){$constraint->aspectRatio();})->save(storage_path() . '/app/public/images/' . $fileNameToStore );
         
         return User::create([
             'name' => $data['name'],
