@@ -1,7 +1,13 @@
 <div class="card mt-3">
       <div class="card-body d-flex flex-row">
         <a href="{{ route('users.show', ['name' => $article->user->name]) }}" class="text-dark">
+          @if( $article->user->img_name === '')
           <i class="fas fa-user-circle fa-3x mr-1"></i>
+          @endif
+          @if( $article->user->img_name !== '')
+            <img src="/storage/images/{{$article->user->img_name}}" class="showProfile_Image">
+            
+          @endif
         </a>
         <div>
           <div class="font-weight-bold">
