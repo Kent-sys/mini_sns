@@ -7,6 +7,6 @@
     @include('nav')
   <div class="container">
     
-    @include('articles.card')
+    @include('articles.detailsCard')
   </div> 
 @endsection
