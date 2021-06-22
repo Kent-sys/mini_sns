@@ -58,7 +58,7 @@ jobs:
       - run:
           name: deploy
           command: |
-            ssh -o StrictHostKeyChecking=no -t webapp@${HOST_NAME} "cd misstter && \
+            ssh -o StrictHostKeyChecking=no -t webapp@${HOST_NAME} "cd mini_sns && \
               git pull origin main && \
               composer install -n --no-dev --prefer-dist && \
               npm ci && \
