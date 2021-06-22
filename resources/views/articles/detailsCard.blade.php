@@ -77,7 +77,7 @@
             </a>
         </h3>
         <div class="card-text">
-          {!! nl2br(e( \Illuminate\Support\Str::limit($article->body, 100, '...') )) !!}
+          {!! nl2br(e($article->body)) !!}
         </div>
       </div>
 
