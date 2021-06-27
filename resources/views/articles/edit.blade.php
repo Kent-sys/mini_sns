@@ -1,10 +1,7 @@
 @extends('app')
-
 @section('title', '記事更新')
-
-@include('nav')
-
 @section('content')
+@include('nav')
   <div class="container">
     <div class="row">
       <div class="col-12">
