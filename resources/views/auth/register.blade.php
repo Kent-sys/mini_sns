@@ -19,7 +19,7 @@
 
                 <label for="file_photo" class="rounded-circle userProfileImg mean-fruit-gradient">
                   <i class="fas fa-camera fa-3x"></i>
-                  <!-- <input type="file" id="file_photo" name="img_name"> -->
+                  <input type="file" id="file_photo" name="img_name">
                 </label>
 
                 <div class="md-form">
