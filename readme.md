@@ -5,8 +5,7 @@ laravelとvue.jsを使ったsns風webサービスです。
 記事投稿や編集、記事へのいいね機能、他のユーザーへのフォロー機能などがあります。
 
 # URL
-
-https://laravel-mini-sns.herokuapp.com/
+http://35.74.8.138
 
 # デモ
 ![DEMO](https://user-images.githubusercontent.com/68194473/117990719-606aee00-b378-11eb-8a9f-f8551e10736a.gif)
