@@ -55,6 +55,7 @@
   position: fixed;
   right: 0;
   top: 60px;
+  z-index: -1;
 }
 
 .mobile-menu__main {
@@ -129,6 +130,10 @@
 .menu-open .app-container {
   transform: translate(-300px, 60px);
   box-shadow: 0 8px 40px -10px rgba(0, 0, 0, 0.8);
+}
+
+.menu-open .mobile-menu {
+  z-index: auto;
 }
 
 .menu-open .mobile-menu__link {
